@@ -1,13 +1,27 @@
+import { ThemeProvider, CssBaseline } from "@mui/material";
 import { MultiStepForm } from "./components/MultiStepForm";
-//todo - import form steps & schema here to use
-//this component will include all the steps
+import { getTheme } from "./theme/theme";
+import "./index.css";
 
-function App() {
+export const App = () => {
+  // const mode = useColorMode();TODO
+  const theme = getTheme(mode);
+
   return (
-    <>
-      <MultiStepForm />
-    </>
+    <ThemeProvider theme={theme}>
+      <CssBaseline enableColorScheme />
+      <div
+        className={`app-container ${mode}`}
+        style={{
+          backgroundSize: "cover",
+          backgroundRepeat: "repeat",
+          height: "100%",
+          paddingTop: "40px",
+          paddingBottom: "40px",
+        }}
+      >
+        <MultiStepForm />
+      </div>
+    </ThemeProvider>
   );
-}
-
-export default App;
+};

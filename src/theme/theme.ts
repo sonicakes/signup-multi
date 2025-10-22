@@ -1,15 +1,82 @@
-import { type ThemeOptions } from "@mui/material/styles";
+import { createTheme, type ThemeOptions } from "@mui/material/styles";
 
 const typography: ThemeOptions["typography"] = {
   fontFamily: '"Georgia", serif',
   h1: {
-    fontSize: "2.5rem"
+    fontSize: "2.5rem",
   },
   h2: {
-    fontSize: "1.5rem"
+    fontSize: "1.5rem",
   },
-  body1: { 
-    fontSize: "1rem" 
+  body1: {
+    fontSize: "1rem",
+  },
+};
+
+const components: ThemeOptions["components"] = {
+  MuiButton: {
+    defaultProps: {
+      disableElevation: true,
+    },
+    styleOverrides: {
+      root: {
+        borderRadius: 8,
+        textTransform: "none",
+        fontWeight: "bold",
+      },
+    },
+  },
+  MuiInputBase: {
+    styleOverrides: {
+      // overriding the default auto-fill - blue bg with our custom ones, making it dependent on the dark/light user preferred device theme
+      root: ({ theme }) => ({
+        "& input:-webkit-autofill": {
+          WebkitBoxShadow: `0 0 0 1000px ${
+            theme.palette.mode === "dark"
+              ? theme.palette.grey[900]
+              : theme.palette.grey[50]
+          } inset`,
+
+          WebkitTextFillColor:
+            theme.palette.mode === "dark"
+              ? theme.palette.grey[100]
+              : theme.palette.grey[900],
+
+          transition: "background-color 5000s ease-in-out 0s",
+        },
+        "& .MuiInputLabel-root.Mui-focused, & .MuiInputLabel-root": {
+          "&:-webkit-autofill": {
+            WebkitTextFillColor:
+              theme.palette.mode === "dark"
+                ? theme.palette.secondary.main
+                : theme.palette.primary.main,
+          },
+        },
+      }),
+      input: {
+        letterSpacing: "0.05rem",
+      },
+    },
+  },
+  MuiInputLabel: {
+    styleOverrides: {
+      root: {
+        letterSpacing: "0.05rem",
+      },
+    },
+  },
+  MuiFormHelperText: {
+    styleOverrides: {
+      root: {
+        letterSpacing: "0.05rem",
+      },
+    },
+  },
+  MuiTextField: {
+    defaultProps: {
+      variant: "outlined",
+      fullWidth: true,
+    },
   },
 };
 
@@ -55,3 +122,18 @@ const darkPalette: ThemeOptions["palette"] = {
   },
 };
 
+export const getTheme = (mode: "light" | "dark") => {
+  const palette = mode === "dark" ? darkPalette : lightPalette;
+
+  return createTheme({
+    palette: palette,
+    typography: typography,
+    components: components,
+    transitions: {
+      duration: {
+        enteringScreen: 500,
+        leavingScreen: 500,
+      },
+    },
+  });
+};
