@@ -2,12 +2,14 @@ import { createTheme, responsiveFontSizes, type ThemeOptions } from "@mui/materi
 import { useEffect, useState } from "react";
 
 const typography: ThemeOptions["typography"] = {
-  fontFamily: '"Georgia", serif',
+  fontFamily: '"Merriweather", serif',
   h1: {
     fontSize: "2.5rem",
+    fontFamily: "Barrio"
   },
   h2: {
-    fontSize: "1.5rem",
+    fontSize: "1.25rem",
+    fontWeight: 'bold'
   },
   body1: {
     fontSize: "1rem",
