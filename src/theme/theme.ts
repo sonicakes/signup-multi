@@ -1,4 +1,5 @@
 import { createTheme, type ThemeOptions } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 
 const typography: ThemeOptions["typography"] = {
   fontFamily: '"Georgia", serif',
@@ -120,6 +121,39 @@ const darkPalette: ThemeOptions["palette"] = {
     primary: "#F0F0F0",
     secondary: "#B0B0B0",
   },
+};
+
+const getInitialMode = (): "light" | "dark" => {
+  if (typeof window !== "undefined" && window.matchMedia) {
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    if (mediaQuery && typeof mediaQuery.matches === "boolean") {
+      return mediaQuery.matches ? "dark" : "light";
+    }
+  }
+  return "light";
+};
+
+export const useColorMode = () => {
+  //Init state using the sync getInitialMode func
+  const [mode, setMode] = useState<"light" | "dark">(getInitialMode);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) {
+      return;
+    }
+
+    const mediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
+
+    const handler = (event: MediaQueryListEvent) => {
+      setMode(event.matches ? "dark" : "light");
+    };
+
+    mediaQueryList.addEventListener("change", handler);
+
+    return () => mediaQueryList.removeEventListener("change", handler);
+  }, []);
+
+  return mode;
 };
 
 export const getTheme = (mode: "light" | "dark") => {
