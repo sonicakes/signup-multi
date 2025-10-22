@@ -1,0 +1,35 @@
+html, body, #root {
+    height: 100%;
+}
+
+.app-container {
+    position: relative;
+    background-image: none;
+    z-index: 1; 
+    overflow: hidden; 
+    min-height: 100vh;
+    overflow-y: scroll;
+}
+
+.app-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    background-image: url("./assets/images/ghosties.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    opacity: 5%;
+    
+   
+}
+
+.app-container.dark::before {
+ /* Apply invert filter only to the dark theme so that ghosts are contrasting white colour against dark bg */
+    filter: invert(1); 
+}
+
