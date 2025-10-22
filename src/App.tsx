@@ -16,8 +16,7 @@ export const App = () => {
           backgroundSize: "cover",
           backgroundRepeat: "repeat",
           height: "100%",
-          paddingTop: "40px",
-          paddingBottom: "40px",
+          paddingBlock: "2.5rem",
         }}
       >
         <MultiStepForm />

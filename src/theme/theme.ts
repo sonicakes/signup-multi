@@ -1,4 +1,4 @@
-import { createTheme, type ThemeOptions } from "@mui/material/styles";
+import { createTheme, responsiveFontSizes, type ThemeOptions } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 
 const typography: ThemeOptions["typography"] = {
@@ -157,12 +157,12 @@ export const useColorMode = () => {
 };
 
 export const getTheme = (mode: "light" | "dark") => {
-  const palette = mode === "dark" ? darkPalette : lightPalette;
+   const palette = mode === "dark" ? darkPalette : lightPalette;
 
-  return createTheme({
-    palette: palette,
-    typography: typography,
-    components: components,
+  let theme = createTheme({
+    palette,
+    typography,
+    components,
     transitions: {
       duration: {
         enteringScreen: 500,
@@ -170,4 +170,11 @@ export const getTheme = (mode: "light" | "dark") => {
       },
     },
   });
+
+  //responsive typography scaling - auto
+  theme = responsiveFontSizes(theme, {
+    breakpoints: ["sm", "md", "lg"], //which breakpoints to scale across
+  });
+
+  return theme;
 };
