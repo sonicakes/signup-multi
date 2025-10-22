@@ -2,17 +2,27 @@ import {
   useForm,
   FormProvider,
   type Resolver,
+  type DeepPartial
 } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signupSchema, type SignupFormData } from "../types/SignupFormSchema";
-import { FORM_STEPS } from "../config/signUpFormSteps";
+import { FORM_STEPS } from "../config/signupFormSteps";
 import { useState } from "react";
 import { Button, Box, useTheme, Typography} from "@mui/material";
 import { ProgressBar } from "../components/utilities/ProgressBar";
 
-const defaultValues: Partial<SignupFormData> = {
- //TODO write default vals
- //using partial coz its multi step, not all data will be available to us at once
+const defaultValues: DeepPartial<SignupFormData> = {
+  email: "",
+  password: "",
+  name: "",
+  userRole: "",
+  organisationName: "",
+  organisationSize: "1-10", //picked small size as selected, as an example
+  useCase: "",
+  teamInvites: [],
+  pricingPlan: "Starter", //picked starter coz its free so ppl dont get overcharged if they overlooked it
+  acceptedTerms: false,
+  mailingList: false,
 };
 
 export const MultiStepForm = () => {
