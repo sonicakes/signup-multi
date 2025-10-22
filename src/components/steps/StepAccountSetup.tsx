@@ -66,7 +66,7 @@ export const StepAccountSetup = () => {
             helperText={
               errors.password
                 ? errors.password.message
-                : "Do not pick something that is easy to guess, e.g. the date of your birth/death or name of your familiar."
+                : "Do not pick something that is easy to guess, e.g. the date of your death or name of your familiar."
             }
             slotProps={{
               input: {
