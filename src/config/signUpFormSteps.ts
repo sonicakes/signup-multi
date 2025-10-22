@@ -1,11 +1,10 @@
 import { type FunctionComponent } from 'react';
-// TODO - create individual step components
-// import { StepAccountSetup } from "../components/steps/StepAccountSetup";
-// import { StepIdentity } from "../components/steps/StepIdentity";
-// import { StepOrganization } from "../components/steps/StepOrganization";
-// import { StepTeam } from "../components/steps/StepTeam";
-// import { StepLegal } from "../components/steps/StepLegal";
-// import { StepReview } from "../components/steps/StepReview";
+import { StepAccountSetup } from "../components/steps/StepAccountSetup";
+import { StepIdentity } from "../components/steps/StepIdentity";
+import { StepOrganization } from "../components/steps/StepOrganization";
+import { StepTeam } from "../components/steps/StepTeam";
+import { StepLegal } from "../components/steps/StepLegal";
+import { StepReview } from "../components/steps/StepReview";
 
 interface FormStep {
     id: 'account' | 'identity' | 'organization' | 'team' | 'legal' | 'review';
