@@ -17,7 +17,7 @@ const defaultValues: DeepPartial<SignupFormData> = {
   name: "",
   userRole: "",
   organisationName: "",
-  organisationSize: "1-10", //picked small size as selected, as an example
+  organisationSize: "1-10", 
   useCase: "",
   teamInvites: [],
   pricingPlan: "Starter", //picked starter coz its free so ppl dont get overcharged if they overlooked it
@@ -102,7 +102,9 @@ export const MultiStepForm = () => {
 
       {!isSubmitSuccessful && (
         <ProgressBar
-        //todo
+          currentStepIndex={currentStep}
+          totalSteps={FORM_STEPS.length}
+          stepTitle={currentStepConfig.title}
         />
       )}
 

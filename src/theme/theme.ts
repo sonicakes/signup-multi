@@ -9,7 +9,8 @@ const typography: ThemeOptions["typography"] = {
   },
   h2: {
     fontSize: "1.25rem",
-    fontWeight: 'bold'
+    fontWeight: '600',
+    letterSpacing: '0.02rem'
   },
   body1: {
     fontSize: "1rem",
@@ -83,24 +84,42 @@ const components: ThemeOptions["components"] = {
   },
 };
 
-const primaryColor = {
-  main: "#FF781F",
-  light: "#FFA552",
-  dark: "#C84D00",
-  contrastText: "#000000",
-};
-
-const secondaryColor = {
-  main: "#39A300",
-  light: "#60C32D",
-  dark: "#0C7300",
+const lightPalettePrimary = { //defining darker main color for light palette to meet AA & AAA standards- against #fff white paper
+  main: "#7A3A00",
+  light: "#946132",
+  dark: "#692700",
   contrastText: "#FFFFFF",
 };
 
+const darkPalettePrimary = { //same here, going lighter to meet AAA on dark grey paper bg 
+  main: "#FFA566",
+  light: "#FFDEC1",
+  dark: "#FF781F",
+  contrastText: "#000000",
+};
+
+const lightPaletteSecondary = {
+  main: "#0F6600",
+  light: "#3e8432",
+  dark: "#0a4700",
+  contrastText: "#FFFFFF",
+};
+
+const darkPaletteSecondary = {
+  main: "#55C70D",
+  light: "#88d755",
+  dark: "#449F0A",
+  contrastText: "#000000",
+};
+
+//NOTE: only using .main for primary & secondary colors in the app so far - they have been checked here https://webaim.org/resources/contrastchecker/
+//.light, .dark varieties have not been tested yet, so here as a placeholder for further development
+//primary txt, secondary txt used in the input - also checked for compliance
+
 const lightPalette: ThemeOptions["palette"] = {
   mode: "light",
-  primary: primaryColor,
-  secondary: secondaryColor,
+  primary: lightPalettePrimary,
+  secondary: lightPaletteSecondary,
   background: {
     default: "#FCF2E1",
     paper: "#FFFFFF",
@@ -113,8 +132,8 @@ const lightPalette: ThemeOptions["palette"] = {
 
 const darkPalette: ThemeOptions["palette"] = {
   mode: "dark",
-  primary: primaryColor,
-  secondary: secondaryColor,
+  primary: darkPalettePrimary,
+  secondary: darkPaletteSecondary,
   background: {
     default: "#0D0D0D",
     paper: "#1F1F1F",
