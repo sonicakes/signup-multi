@@ -5,7 +5,7 @@ This project implements a custom-themed, multi-step registration wizard that res
 
 At the end of the sign up flow, the collected values are printed in the console.
 
-The intended purpose is to sign up for imaginary portal Frightbook which is like Facebook for monsters. Its description can be found here: XXX
+The intended purpose is to sign up for imaginary portal Frightbook which is like Facebook for monsters. Its description can be found here: [Frightbook Demo](https://preview.shorthand.com/oGc9pvG7p2CcHpMW)
 
 
 ---
@@ -53,17 +53,17 @@ The following features are planned for future development:
 - A color-coded LinearProgress bar that fills up (e.g., changing from Red/Weak to Yellow/Medium to Green/Strong).
 - Dynamic Helper Text that changes words like "Weak," "Fair," or "Excellent" based on the calculated score.
 2. **Replace subtitle text with Tooltips:** I've started doing that with Organization step - need to be consistent throughout the steps.
-3.  **Button NEXT should be disabled until all validation rules are fulfilled:** Cxxxxx.
-4. **Sections in Summary Review step could be collapsed/expanded as desired in Accordion style -  I find the summary scroll is annoying:** .....
-5. **Better representation of steps - using circular 1-2-3-4 instead of Linear bar is clearer & keeps steps in mind** ...
+3.  **Button NEXT should be disabled until all validation rules are fulfilled:**
+4. **Sections in Summary Review step could be collapsed/expanded as desired in Accordion style -  I find the summary scroll is annoying** 
+5. **Better representation of steps - using circular 1-2-3-4 instead of Linear bar is clearer & keeps steps in mind** 
 6. **Implement incremental personalization:** 
 - E.g. when user selects their role as Vampire, the avatar would replace 'Signup Form' header in the top middle of the form & display picture of a vampire.
 - As we progress further into the steps, personalisation levels would also increase. Selecting a primary use case (howling at the moon, for instance, would render a background of wolves & moon. Or maybe not - since the werewolves might be triggered & start changing?...🤷)
 - Drilling into personalization even further, we could provide conditional fields based on the previous step (e.g. Primary role = Witch, in the next step we could ask if their coven needs a special discount on brooms & cauldrons from our Partner at 'Brooms & Co' if they invite 5+ team members to join)
-7. **Add confirm pswd field** ...
-8. **For price tier selection, include cards-like elements that have description etc. so that user knows what they are signing up for** ...
-9. **Include animation on transition from step to step - slide or similar** ...
-10. **Include animation on success/TY screen - checkbox animated** ...
+7. **Add confirm pswd field**
+8. **For price tier selection, include cards-like elements that have description etc. so that user knows what they are signing up for** 
+9. **Include animation on transition from step to step - slide or similar** 
+10. **Include animation on success/TY screen - checkbox animated**
 
 
 ---
